@@ -4,6 +4,7 @@ import { RepositoriesModule } from '../repositories/repositories.module';
 import { DatabaseProjectRepository } from '../repositories/project.repository';
 import { UseCaseProxy } from './usecases-proxy';
 import { getAllProjectsUseCase } from '../../application/use-cases/projects/getAllProjects.usecase';
+import { LoggerService } from '../logger/logger.service';
 
 @Module({
   imports: [EnvironmentConfigModule, RepositoriesModule],
