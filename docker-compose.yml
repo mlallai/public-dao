@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  public-dao-api:
+    build:
+      context: ./public-dao-api
+    ports:
+      - "3000:3000"
+    command: npm run start:dev
+    restart: unless-stopped
+    depends_on:
+      - pg
+
+  pg:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
