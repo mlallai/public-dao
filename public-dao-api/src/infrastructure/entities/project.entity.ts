@@ -7,6 +7,11 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+export enum ProjectStatus {
+  ACTIVE = 'active',
+  INACTIVE = 'inactive',
+}
+
 @Entity('projects')
 export class Project {
   @PrimaryGeneratedColumn('increment')
@@ -17,6 +22,13 @@ export class Project {
 
   @Column('varchar', { nullable: false })
   description: string;
+
+  @Column({
+    type: 'enum',
+    enum: ProjectStatus,
+    default: ProjectStatus.INACTIVE,
+  })
+  status: ProjectStatus;
 
   @CreateDateColumn({ name: 'created_at' })
   created_at: Date;
