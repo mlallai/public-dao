@@ -36,7 +36,7 @@
 FROM node:20-alpine
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Copy package files and install dependencies
 COPY package*.json ./
