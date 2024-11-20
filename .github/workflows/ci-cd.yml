@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Build Docker image
-        run: docker build --target build -t public-dao-api ./public-dao-api
+        run: docker build -t public-dao-api ./public-dao-api
       - name: Run container tests
         run: docker run public-dao-api npm test
       # - name: Setup Node.js
