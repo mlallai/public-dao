@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: public-dao-api-local-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: public-dao-api
+  template:
+    metadata:
+      labels:
+        app: public-dao-api
+    spec:
+      containers:
+      - name: public-dao-api-container
+        image: public-dao-api-image:latest
+        ports:
+        - containerPort: 8080
