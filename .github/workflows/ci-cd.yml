@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-      uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       - name: Install dependencies
-      run: npm install
-      working-directory: public-dao-api
+        run: npm install
+        working-directory: public-dao-api
       - name: Run tests
-      run: npm test
-      working-directory: public-dao-api
+        run: npm test
+        working-directory: public-dao-api
