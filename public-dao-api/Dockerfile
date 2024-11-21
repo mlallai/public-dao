@@ -18,11 +18,11 @@ COPY --chown=node:node . .
 
 RUN npm run build
 
+USER node
+
 ENV NODE_ENV production
 
 RUN npm ci --omit=dev && npm cache clean --force
-
-USER node
 
 FROM node:20-alpine As production
 
@@ -30,4 +30,4 @@ COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /usr/src/app/dist ./dist
 
 EXPOSE 3000
-CMD ["npm", "start:prod"]
+CMD ["npm", "run", "start:prod"]
