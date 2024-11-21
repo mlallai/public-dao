@@ -41,6 +41,6 @@ jobs:
           - name: Pull latest Docker image
             run: docker pull mlallai/public-dao-api:latest
           - name: Tag Docker image for ECR
-            run: docker tag mlallai/public-dao-api:latest ${{ AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/public-dao-api:latest
+            run: docker tag mlallai/public-dao-api:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/public-dao-api:latest
           - name: Push Docker image to ECR
-            run: docker push ${{ AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/public-dao-api:latest
+            run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/public-dao-api:latest
