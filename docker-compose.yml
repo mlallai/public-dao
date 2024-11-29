@@ -2,7 +2,7 @@ version: '3.9'
 services:
   public-dao-api:
     build:
-      context: ./public-dao-api
+      context: .
       target: install-dependencies
     ports:
       - "3000:3000"
