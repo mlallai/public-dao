@@ -1,6 +1,10 @@
 import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
+import * as path from 'path';
+
 dotenv.config();
+
+const migrationsDir = path.join(__dirname, 'migrations');
 
 const config = new DataSource({
   type: 'postgres',
@@ -11,9 +15,9 @@ const config = new DataSource({
   database: process.env.DATABASE_NAME,
   entities: [__dirname + './../../**/*.entity{.ts,.js}'],
   synchronize: true,
-  schema: process.env.DATABASE_SCHEMA,
+  schema: 'public',
   migrationsRun: true,
-  migrations: ['src/infrastructure/migrations/**/*{.ts,.js}'],
+  migrations: [`${migrationsDir}/*{.ts,.js}`],
 });
 
 config

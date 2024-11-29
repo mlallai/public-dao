@@ -3,7 +3,7 @@ services:
   public-dao-api:
     build:
       context: ./public-dao-api
-      # target: development
+      target: install-dependencies
     ports:
       - "3000:3000"
     command: npm run start:dev
