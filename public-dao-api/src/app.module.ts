@@ -4,6 +4,7 @@ import { UsecasesProxyModule } from './infrastructure/usecases-proxy/usecases-pr
 import { ProjectController } from './infrastructure/controllers/projects/project.controller';
 import { ExceptionsModule } from './infrastructure/exceptions/exceptions.module';
 import { LoggerModule } from './infrastructure/logger/logger.module';
+import { WelcomeController } from './infrastructure/controllers/welcome/welcome.controller';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { LoggerModule } from './infrastructure/logger/logger.module';
     ExceptionsModule,
     LoggerModule,
   ],
-  controllers: [ProjectController],
+  controllers: [ProjectController, WelcomeController],
   providers: [],
 })
 export class AppModule {}
