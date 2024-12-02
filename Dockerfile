@@ -15,5 +15,4 @@ WORKDIR /usr/src/app
 COPY --from=install-dependencies /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/dist ./dist
 COPY public-dao-api/package.json ./
-EXPOSE 3000
 CMD ["npm", "run", "start:prod"]
